@@ -51,11 +51,6 @@ let
         meta
         ;
 
-      patches = lib.optionals (pname != "gammastep") [
-        # https://github.com/jonls/redshift/pull/575
-        ./575.patch
-      ];
-
       strictDeps = true;
 
       depsBuildBuild = [ pkg-config ];
@@ -184,7 +179,7 @@ rec {
       longDescription = "Gammastep" + lib.removePrefix "Redshift" redshift.meta.longDescription;
       homepage = "https://gitlab.com/chinstrap/gammastep";
       mainProgram = "gammastep";
-      maintainers = (with lib.maintainers; [ primeos ]) ++ redshift.meta.maintainers;
+      maintainers = (with lib.maintainers; [ ]) ++ redshift.meta.maintainers;
     };
   };
 }

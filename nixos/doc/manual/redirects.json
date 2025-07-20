@@ -1,4 +1,13 @@
 {
+  "sec-override-nixos-test": [
+    "index.html#sec-override-nixos-test"
+  ],
+  "test-opt-rawTestDerivationArg": [
+    "index.html#test-opt-rawTestDerivationArg"
+  ],
+  "ex-nixos-test-extendNixOS": [
+    "index.html#ex-nixos-test-extendNixOS"
+  ],
   "book-nixos-manual": [
     "index.html#book-nixos-manual"
   ],
@@ -578,6 +587,12 @@
   "module-services-suwayomi-server-extra-config": [
     "index.html#module-services-suwayomi-server-extra-config"
   ],
+  "module-services-paisa": [
+    "index.html#module-services-paisa"
+  ],
+  "module-services-paisa-usage": [
+    "index.html#module-services-paisa-usage"
+  ],
   "module-services-plausible": [
     "index.html#module-services-plausible"
   ],
@@ -616,6 +631,9 @@
   ],
   "module-services-nextcloud-httpd": [
     "index.html#module-services-nextcloud-httpd"
+  ],
+  "module-services-nextcloud-occ": [
+    "index.html#module-services-nextcloud-occ"
   ],
   "installing-apps-php-extensions-nextcloud": [
     "index.html#installing-apps-php-extensions-nextcloud"
@@ -1884,6 +1902,9 @@
   "test-opt-sshBackdoor.vsockOffset": [
     "index.html#test-opt-sshBackdoor.vsockOffset"
   ],
+  "test-opt-enableDebugHook": [
+    "index.html#test-opt-enableDebugHook"
+  ],
   "test-opt-defaults": [
     "index.html#test-opt-defaults"
   ],
@@ -1991,6 +2012,9 @@
   ],
   "sec-nixos-test-testing-hardware-features": [
     "index.html#sec-nixos-test-testing-hardware-features"
+  ],
+  "sec-test-sandbox-breakpoint": [
+    "index.html#sec-test-sandbox-breakpoint"
   ],
   "chap-developing-the-test-driver": [
     "index.html#chap-developing-the-test-driver"
