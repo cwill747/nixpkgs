@@ -2763,6 +2763,8 @@ self: super: with self; {
 
   color-operations = callPackage ../development/python-modules/color-operations { };
 
+  color-parser-py = callPackage ../development/python-modules/color-parser-py { };
+
   colorama = callPackage ../development/python-modules/colorama { };
 
   colorcet = callPackage ../development/python-modules/colorcet { };
@@ -3719,8 +3721,6 @@ self: super: with self; {
   dj-search-url = callPackage ../development/python-modules/dj-search-url { };
 
   dj-static = callPackage ../development/python-modules/dj-static { };
-
-  dj-stripe = callPackage ../development/python-modules/dj-stripe { };
 
   # LTS with mainsteam support
   django = self.django_4;
@@ -5757,6 +5757,8 @@ self: super: with self; {
 
   gevent = callPackage ../development/python-modules/gevent { };
 
+  gevent-eventemitter = callPackage ../development/python-modules/gevent-eventemitter { };
+
   gevent-socketio = callPackage ../development/python-modules/gevent-socketio { };
 
   gevent-websocket = callPackage ../development/python-modules/gevent-websocket { };
@@ -6294,6 +6296,8 @@ self: super: with self; {
 
   gstools = callPackage ../development/python-modules/gstools { };
 
+  gstools-cython = callPackage ../development/python-modules/gstools-cython { };
+
   gtfs-realtime-bindings = callPackage ../development/python-modules/gtfs-realtime-bindings { };
 
   gto = callPackage ../development/python-modules/gto { };
@@ -6698,6 +6702,8 @@ self: super: with self; {
   httptools = callPackage ../development/python-modules/httptools { };
 
   httpx = callPackage ../development/python-modules/httpx { };
+
+  httpx-aiohttp = callPackage ../development/python-modules/httpx-aiohttp { };
 
   httpx-auth = callPackage ../development/python-modules/httpx-auth { };
 
@@ -7821,6 +7827,8 @@ self: super: with self; {
 
   langchain-deepseek = callPackage ../development/python-modules/langchain-deepseek { };
 
+  langchain-experimental = callPackage ../development/python-modules/langchain-experimental { };
+
   langchain-fireworks = callPackage ../development/python-modules/langchain-fireworks { };
 
   langchain-google-genai = callPackage ../development/python-modules/langchain-google-genai { };
@@ -8518,6 +8526,8 @@ self: super: with self; {
   llm-gguf = callPackage ../development/python-modules/llm-gguf { };
 
   llm-git = callPackage ../development/python-modules/llm-git { };
+
+  llm-github-copilot = callPackage ../development/python-modules/llm-github-copilot { };
 
   llm-grok = callPackage ../development/python-modules/llm-grok { };
 
@@ -12025,6 +12035,8 @@ self: super: with self; {
 
   psd-tools = callPackage ../development/python-modules/psd-tools { };
 
+  psnawp = callPackage ../development/python-modules/psnawp { };
+
   psrpcore = callPackage ../development/python-modules/psrpcore { };
 
   psutil = callPackage ../development/python-modules/psutil { };
@@ -13937,6 +13949,8 @@ self: super: with self; {
 
   pysol-cards = callPackage ../development/python-modules/pysol-cards { };
 
+  pysolarmanv5 = callPackage ../development/python-modules/pysolarmanv5 { };
+
   pysolcast = callPackage ../development/python-modules/pysolcast { };
 
   pysolr = callPackage ../development/python-modules/pysolr { };
@@ -14267,6 +14281,8 @@ self: super: with self; {
   pytest-remotedata = callPackage ../development/python-modules/pytest-remotedata { };
 
   pytest-repeat = callPackage ../development/python-modules/pytest-repeat { };
+
+  pytest-reraise = callPackage ../development/python-modules/pytest-reraise { };
 
   pytest-rerunfailures = callPackage ../development/python-modules/pytest-rerunfailures { };
 
@@ -14769,6 +14785,8 @@ self: super: with self; {
   python-troveclient = callPackage ../development/python-modules/python-troveclient { };
 
   python-trovo = callPackage ../development/python-modules/python-trovo { };
+
+  python-tsp = callPackage ../development/python-modules/python-tsp { };
 
   python-twitch-client = callPackage ../development/python-modules/python-twitch-client { };
 
@@ -15962,6 +15980,8 @@ self: super: with self; {
   sarif-tools = callPackage ../development/python-modules/sarif-tools { };
 
   sasmodels = callPackage ../development/python-modules/sasmodels { };
+
+  sat-tmp = callPackage ../development/python-modules/sat-tmp { };
 
   satel-integra = callPackage ../development/python-modules/satel-integra { };
 
@@ -17229,9 +17249,13 @@ self: super: with self; {
 
   stdlibs = callPackage ../development/python-modules/stdlibs { };
 
+  steam = callPackage ../development/python-modules/steam { };
+
   steamodd = callPackage ../development/python-modules/steamodd { };
 
   steamship = callPackage ../development/python-modules/steamship { };
+
+  steamworkspy = callPackage ../development/python-modules/steamworkspy { };
 
   stem = callPackage ../development/python-modules/stem { };
 
@@ -17906,6 +17930,8 @@ self: super: with self; {
 
   tilt-ble = callPackage ../development/python-modules/tilt-ble { };
 
+  tilt-pi = callPackage ../development/python-modules/tilt-pi { };
+
   time-machine = callPackage ../development/python-modules/time-machine { };
 
   timeago = callPackage ../development/python-modules/timeago { };
@@ -18304,6 +18330,8 @@ self: super: with self; {
   );
 
   tskit = callPackage ../development/python-modules/tskit { };
+
+  tsplib95 = callPackage ../development/python-modules/tsplib95 { };
 
   ttach = callPackage ../development/python-modules/ttach { };
 
@@ -19196,6 +19224,8 @@ self: super: with self; {
   vega = callPackage ../development/python-modules/vega { };
 
   vega-datasets = callPackage ../development/python-modules/vega-datasets { };
+
+  vegehub = callPackage ../development/python-modules/vegehub { };
 
   vehicle = callPackage ../development/python-modules/vehicle { };
 
