@@ -304,6 +304,7 @@ mapAliases {
   archipelago-minecraft = throw "archipelago-minecraft has been removed, as upstream no longer ships minecraft as a default APWorld."; # Added 2025-07-15
   argo = argo-workflows; # Added 2025-02-01
   aria = aria2; # Added 2024-03-26
+  artim-dark = aritim-dark; # Added 2025-07-27
   armcord = throw "ArmCord was renamed to legcord by the upstream developers. Action is required to migrate configurations between the two applications. Please see this PR for more details: https://github.com/NixOS/nixpkgs/pull/347971"; # Added 2024-10-11
   aseprite-unfree = aseprite; # Added 2023-08-26
   asitop = macpm; # 'macpm' is a better-maintained downstream; keep 'asitop' for backwards-compatibility
@@ -1131,6 +1132,7 @@ mapAliases {
   linuxPackages_6_13 = linuxKernel.packages.linux_6_13;
   linuxPackages_6_14 = linuxKernel.packages.linux_6_14;
   linuxPackages_6_15 = linuxKernel.packages.linux_6_15;
+  linuxPackages_6_16 = linuxKernel.packages.linux_6_16;
   linuxPackages_ham = linuxKernel.packages.linux_ham;
   linuxPackages_rpi0 = linuxKernel.packages.linux_rpi1;
   linuxPackages_rpi02w = linuxKernel.packages.linux_rpi3;
@@ -1155,6 +1157,7 @@ mapAliases {
   linux_6_13 = linuxKernel.kernels.linux_6_13;
   linux_6_14 = linuxKernel.kernels.linux_6_14;
   linux_6_15 = linuxKernel.kernels.linux_6_15;
+  linux_6_16 = linuxKernel.kernels.linux_6_16;
   linux_ham = linuxKernel.kernels.linux_ham;
   linux_rpi0 = linuxKernel.kernels.linux_rpi1;
   linux_rpi02w = linuxKernel.kernels.linux_rpi3;
@@ -1336,6 +1339,7 @@ mapAliases {
   mustache-tcl = tclPackages.mustache-tcl; # Added 2024-10-02
   mutt-with-sidebar = mutt; # Added 2022-09-17
   mutter43 = throw "'mutter43' has been removed since it is no longer used by Pantheon."; # Added 2024-09-22
+  mx-puppet-discord = throw "mx-puppet-discord was removed since the packaging was unmaintained and was the sole user of sha1 hashes in nixpkgs"; # Added 2025-07-24
   mysql-client = hiPrio mariadb.client;
   mysql = throw "'mysql' has been renamed to/replaced by 'mariadb'"; # Converted to throw 2024-10-17
   mesa_drivers = throw "'mesa_drivers' has been removed, use 'pkgs.mesa' instead."; # Converted to throw 2024-07-11
@@ -1574,7 +1578,7 @@ mapAliases {
   phlare = throw "'phlare' has been removed as the upstream project was archived."; # Added 2025-03-27
   picom-next = picom; # Added 2024-02-13
   pict-rs_0_3 = throw "pict-rs_0_3 has been removed, as it was an outdated version and no longer compiled"; # Added 2024-08-20
-
+  pilipalax = throw "'pilipalax' has been removed from nixpkgs due to it not being maintained"; # Added 2025-07-25
   pio = throw "pio has been removed due to lack of upstream maintenance"; # Added 2025-01-25
   pipewire_0_2 = throw "pipewire_0_2 has been removed as it is outdated and no longer used"; # Added 2024-07-28
   pipewire-media-session = throw "pipewire-media-session is no longer maintained and has been removed. Please use Wireplumber instead.";
@@ -1811,6 +1815,7 @@ mapAliases {
   schildichat-desktop-wayland = schildichat-web;
   scitoken-cpp = scitokens-cpp; # Added 2024-02-12
   scry = throw "'scry' has been removed as it was archived upstream. Use 'crystalline' instead"; # Added 2025-02-12
+  scudcloud = throw "'scudcloud' has been removed as it was archived by upstream"; # Added 2025-07-24
   semeru-bin-16 = throw "Semeru 16 has been removed as it has reached its end of life"; # Added 2024-08-01
   semeru-jre-bin-16 = throw "Semeru 16 has been removed as it has reached its end of life"; # Added 2024-08-01
   sensu = throw "sensu has been removed as the upstream project is deprecated. Consider using `sensu-go`"; # Added 2024-10-28
@@ -2137,6 +2142,7 @@ mapAliases {
   ''; # Add 2023-07-29
   waypoint = throw "waypoint has been removed from nixpkgs as the upstream project was archived"; # Added 2024-04-24
   wcurl = throw "'wcurl' has been removed due to being bundled with 'curl'"; # Added 2025-07-04
+  webfontkitgenerator = webfont-bundler; # Added 2025-07-27
   webkitgtk = throw "'webkitgtk' attribute has been removed from nixpkgs, use attribute with ABI version set explicitly"; # Added 2025-06-11
   webmetro = throw "'webmetro' has been removed due to lack of upstream maintenance"; # Added 2025-01-25
   wg-bond = throw "'wg-bond' has been removed due to lack of upstream maintenance"; # Added 2025-01-25

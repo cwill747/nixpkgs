@@ -1284,6 +1284,8 @@ in
     nvimSkipModules = [
       "fzf-lua.shell_helper"
       "fzf-lua.spawn"
+      "fzf-lua.rpc"
+      "fzf-lua.types"
     ];
   };
 
@@ -2041,6 +2043,14 @@ in
   neotest-bash = super.neotest-bash.overrideAttrs {
     dependencies = with self; [
       neotest
+      plenary-nvim
+    ];
+  };
+
+  neotest-ctest = super.neotest-ctest.overrideAttrs {
+    dependencies = with self; [
+      neotest
+      nvim-nio
       plenary-nvim
     ];
   };
@@ -2823,6 +2833,13 @@ in
 
   otter-nvim = super.otter-nvim.overrideAttrs {
     dependencies = [ self.nvim-lspconfig ];
+    nvimSkipModules = [
+      # requires config setup
+      "otter.keeper"
+      "otter.lsp.handlers"
+      "otter.lsp.init"
+      "otter.diagnostics"
+    ];
   };
 
   outline-nvim = super.outline-nvim.overrideAttrs {
@@ -2949,6 +2966,15 @@ in
     ];
   };
 
+  python-mode = super.python-mode.overrideAttrs {
+    postPatch = ''
+      # NOTE: Fix broken symlink - the pytoolconfig directory was moved to src/
+      # https://github.com/python-mode/python-mode/pull/1189#issuecomment-3109528360
+      rm -f pymode/libs/pytoolconfig
+      ln -sf ../../submodules/pytoolconfig/src/pytoolconfig pymode/libs/pytoolconfig
+    '';
+  };
+
   pywal-nvim = super.pywal-nvim.overrideAttrs {
     # Optional feline integration
     nvimSkipModules = "pywal.feline";
@@ -2977,9 +3003,9 @@ in
       nvim-lspconfig
       otter-nvim
     ];
-  };
-
-  quicker-nvim = super.quicker-nvim.overrideAttrs {
+    nvimSkipModules = [
+      "quarto.runner.init"
+    ];
   };
 
   range-highlight-nvim = super.range-highlight-nvim.overrideAttrs {
@@ -3280,6 +3306,11 @@ in
   syntax-tree-surfer = super.syntax-tree-surfer.overrideAttrs {
     dependencies = [ self.nvim-treesitter ];
     meta.maintainers = with lib.maintainers; [ callumio ];
+  };
+
+  tardis-nvim = super.tardis-nvim.overrideAttrs {
+    dependencies = [ self.plenary-nvim ];
+    meta.maintainers = with lib.maintainers; [ fredeb ];
   };
 
   taskwarrior2 = buildVimPlugin {
