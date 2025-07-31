@@ -712,6 +712,7 @@ mapAliases {
   fmt_8 = throw "fmt_8 has been removed as it is obsolete and was no longer used in the tree"; # Added 2024-11-12
   fntsample = throw "fntsample has been removed as it is unmaintained upstream"; # Added 2025-04-21
   foldingathome = throw "'foldingathome' has been renamed to/replaced by 'fahclient'"; # Converted to throw 2024-10-17
+  follow = lib.warnOnInstantiate "follow has been renamed to folo" folo; # Added 2025-05-18
   forgejo-actions-runner = forgejo-runner; # Added 2024-04-04
   fornalder = throw "'fornalder' has been removed as it is unmaintained upstream"; # Added 2025-01-25
   foundationdb71 = throw "foundationdb71 has been removed; please upgrade to foundationdb73"; # Added 2024-12-28
@@ -1666,6 +1667,7 @@ mapAliases {
   premake3 = throw "'premake3' has been removed since it is unmaintained. Consider using 'premake' instead"; # Added 2025-05-10
   prismlauncher-qt5 = throw "'prismlauncher-qt5' has been removed from nixpkgs. Please use 'prismlauncher'"; # Added 2024-04-20
   prismlauncher-qt5-unwrapped = throw "'prismlauncher-qt5-unwrapped' has been removed from nixpkgs. Please use 'prismlauncher-unwrapped'"; # Added 2024-04-20
+  private-gpt = throw "'private-gpt' has been removed from nixpkgs, as it was broken and unmaintained"; # Added 2025-07-28
   probe-rs = probe-rs-tools; # Added 2024-05-23
   probe-run = throw "probe-run is deprecated upstream.  Use probe-rs instead."; # Added 2024-05-23
   prometheus-dmarc-exporter = dmarc-metrics-exporter; # added 2022-05-31
