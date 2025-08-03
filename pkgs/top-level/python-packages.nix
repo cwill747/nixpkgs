@@ -226,6 +226,8 @@ self: super: with self; {
 
   aiocache = callPackage ../development/python-modules/aiocache { };
 
+  aiocmd = callPackage ../development/python-modules/aiocmd { };
+
   aiocoap = callPackage ../development/python-modules/aiocoap { };
 
   aiocomelit = callPackage ../development/python-modules/aiocomelit { };
@@ -970,6 +972,8 @@ self: super: with self; {
   assertpy = callPackage ../development/python-modules/assertpy { };
 
   asserts = callPackage ../development/python-modules/asserts { };
+
+  ast-grep-py = callPackage ../development/python-modules/ast-grep-py { };
 
   asterisk-mbox = callPackage ../development/python-modules/asterisk-mbox { };
 
@@ -2395,6 +2399,8 @@ self: super: with self; {
   certbot-dns-rfc2136 = callPackage ../development/python-modules/certbot-dns-rfc2136 { };
 
   certbot-dns-route53 = callPackage ../development/python-modules/certbot-dns-route53 { };
+
+  certbot-nginx = callPackage ../development/python-modules/certbot-nginx { };
 
   certifi = callPackage ../development/python-modules/certifi { };
 
@@ -4078,8 +4084,6 @@ self: super: with self; {
   django-widget-tweaks = callPackage ../development/python-modules/django-widget-tweaks { };
 
   # LTS in extended support phase
-  django_3 = callPackage ../development/python-modules/django/3.nix { };
-
   django_4 = callPackage ../development/python-modules/django/4.nix { };
 
   django_5 = self.django_5_2;
@@ -4350,7 +4354,13 @@ self: super: with self; {
 
   dropmqttapi = callPackage ../development/python-modules/dropmqttapi { };
 
+  ds-analysis-lib = callPackage ../development/python-modules/ds-analysis-lib { };
+
+  ds-reporting-lib = callPackage ../development/python-modules/ds-reporting-lib { };
+
   ds-store = callPackage ../development/python-modules/ds-store { };
+
+  ds-xbom-lib = callPackage ../development/python-modules/ds-xbom-lib { };
 
   ds4drv = callPackage ../development/python-modules/ds4drv { };
 
@@ -7079,8 +7089,6 @@ self: super: with self; {
 
   iometer = callPackage ../development/python-modules/iometer { };
 
-  ionhash = callPackage ../development/python-modules/ionhash { };
-
   ionoscloud = callPackage ../development/python-modules/ionoscloud { };
 
   iopath = callPackage ../development/python-modules/iopath { };
@@ -7932,6 +7940,8 @@ self: super: with self; {
   lazr-restfulclient = callPackage ../development/python-modules/lazr-restfulclient { };
 
   lazr-uri = callPackage ../development/python-modules/lazr-uri { };
+
+  lazrs = callPackage ../development/python-modules/lazrs { };
 
   lazy = callPackage ../development/python-modules/lazy { };
 
@@ -11084,6 +11094,8 @@ self: super: with self; {
 
   otpauth = callPackage ../development/python-modules/otpauth { };
 
+  otr = callPackage ../development/python-modules/otr { };
+
   ots-python = callPackage ../development/python-modules/ots-python { };
 
   ourgroceries = callPackage ../development/python-modules/ourgroceries { };
@@ -11357,6 +11369,8 @@ self: super: with self; {
   pdfminer-six = callPackage ../development/python-modules/pdfminer-six { };
 
   pdfplumber = callPackage ../development/python-modules/pdfplumber { };
+
+  pdfquery = callPackage ../development/python-modules/pdfquery { };
 
   pdfrw = callPackage ../development/python-modules/pdfrw { };
 
@@ -13258,6 +13272,8 @@ self: super: with self; {
 
   pymilvus = callPackage ../development/python-modules/pymilvus { };
 
+  pymitsubishi = callPackage ../development/python-modules/pymitsubishi { };
+
   pymitv = callPackage ../development/python-modules/pymitv { };
 
   pymodbus = callPackage ../development/python-modules/pymodbus { };
@@ -13580,8 +13596,6 @@ self: super: with self; {
   pypykatz = callPackage ../development/python-modules/pypykatz { };
 
   pypytools = callPackage ../development/python-modules/pypytools { };
-
-  pyqldb = callPackage ../development/python-modules/pyqldb { };
 
   pyqrcode = callPackage ../development/python-modules/pyqrcode { };
 
@@ -15511,6 +15525,8 @@ self: super: with self; {
 
   rencode = callPackage ../development/python-modules/rencode { };
 
+  rendercv-fonts = callPackage ../development/python-modules/rendercv-fonts { };
+
   reno = callPackage ../development/python-modules/reno { };
 
   renson-endura-delta = callPackage ../development/python-modules/renson-endura-delta { };
@@ -15755,6 +15771,8 @@ self: super: with self; {
   roadtx = callPackage ../development/python-modules/roadtx { };
 
   robomachine = callPackage ../development/python-modules/robomachine { };
+
+  robot-descriptions = callPackage ../development/python-modules/robot-descriptions { };
 
   robot-detection = callPackage ../development/python-modules/robot-detection { };
 
@@ -16686,6 +16704,8 @@ self: super: with self; {
   snappy-15-knots = callPackage ../development/python-modules/snappy-15-knots { };
 
   snappy-manifolds = callPackage ../development/python-modules/snappy-manifolds { };
+
+  snapshot-restore-py = callPackage ../development/python-modules/snapshot-restore-py { };
 
   snapshottest = callPackage ../development/python-modules/snapshottest { };
 
@@ -19342,6 +19362,8 @@ self: super: with self; {
 
   virtualenvwrapper = callPackage ../development/python-modules/virtualenvwrapper { };
 
+  viser = callPackage ../development/python-modules/viser { };
+
   visions = callPackage ../development/python-modules/visions { };
 
   visitor = callPackage ../development/python-modules/visitor { };
@@ -19975,6 +19997,8 @@ self: super: with self; {
   yoto-api = callPackage ../development/python-modules/yoto-api { };
 
   youless-api = callPackage ../development/python-modules/youless-api { };
+
+  yourdfpy = callPackage ../development/python-modules/yourdfpy { };
 
   youseedee = callPackage ../development/python-modules/youseedee { };
 
