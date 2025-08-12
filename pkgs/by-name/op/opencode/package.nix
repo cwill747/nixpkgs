@@ -1,9 +1,11 @@
 {
   lib,
+  stdenv,
   stdenvNoCC,
   buildGoModule,
   bun,
   fetchFromGitHub,
+  makeBinaryWrapper,
   models-dev,
   nix-update-script,
   testers,
@@ -12,10 +14,10 @@
 
 let
   opencode-node-modules-hash = {
-    "aarch64-darwin" = "sha256-AM+4jX1lroqBxslGK1by2q8MRsox4xrtlN95qPj0x2Y=";
-    "aarch64-linux" = "sha256-iQIqv6r6uo9zj8kiQDJuPyFdySNHIj+F4C286K6icv0=";
-    "x86_64-darwin" = "sha256-L6ae0C8AVzwMVfob38wdwNZoK02FMokzPGC2209r7NU=";
-    "x86_64-linux" = "sha256-oZa8O0iK5uSJjl6fOdnjqjIuG//ihrj4six3FUdfob8=";
+    "aarch64-darwin" = "sha256-/s6eAI1VJ0kXrxP5yTi+jwNqHBCRcoltJC86AT7nVdI=";
+    "aarch64-linux" = "sha256-aG5e5HMcxO9P7ciZ9cg8uY1rxDpTOKdR31z0L2d9dxY=";
+    "x86_64-darwin" = "sha256-jkAFmTb+cTO/B7a7MgaKqOzZI3QPkM3uW2RULnBcxSI=";
+    "x86_64-linux" = "sha256-ql4qcMtuaRwSVVma3OeKkc9tXhe21PWMMko3W3JgpB0=";
   };
   bun-target = {
     "aarch64-darwin" = "bun-darwin-arm64";
@@ -26,12 +28,12 @@ let
 in
 stdenvNoCC.mkDerivation (finalAttrs: {
   pname = "opencode";
-  version = "0.3.132";
+  version = "0.4.26";
   src = fetchFromGitHub {
     owner = "sst";
     repo = "opencode";
     tag = "v${finalAttrs.version}";
-    hash = "sha256-g++ByI4akYfOTHLhrgm3us77N0jeZwuQIt1mHOLh0GM=";
+    hash = "sha256-sQ1le6/OJb22Kehjj4glUsavHE08u0e2I7h8lW9MO9E=";
   };
 
   tui = buildGoModule {
@@ -40,7 +42,7 @@ stdenvNoCC.mkDerivation (finalAttrs: {
 
     modRoot = "packages/tui";
 
-    vendorHash = "sha256-qsOL6gsZwEm7YcYO/zoyJAnVmciCjPYqPavV77psybU=";
+    vendorHash = "sha256-jINbGug/SPGBjsXNsC9X2r5TwvrOl5PJDL+lrOQP69Q=";
 
     subPackages = [ "cmd/opencode" ];
 
@@ -109,12 +111,13 @@ stdenvNoCC.mkDerivation (finalAttrs: {
 
   nativeBuildInputs = [
     bun
+    makeBinaryWrapper
     models-dev
   ];
 
   patches = [
     # Patch `packages/opencode/src/provider/models-macro.ts` to get contents of
-    # `api.json` from the file bundled with `bun build`.
+    # `_api.json` from the file bundled with `bun build`.
     ./local-models-dev.patch
   ];
 
@@ -126,7 +129,7 @@ stdenvNoCC.mkDerivation (finalAttrs: {
     runHook postConfigure
   '';
 
-  env.MODELS_DEV_API_JSON = "${models-dev}/dist/api.json";
+  env.MODELS_DEV_API_JSON = "${models-dev}/dist/_api.json";
 
   buildPhase = ''
     runHook preBuild
@@ -150,6 +153,15 @@ stdenvNoCC.mkDerivation (finalAttrs: {
     install -Dm755 opencode $out/bin/opencode
 
     runHook postInstall
+  '';
+
+  # Execution of commands using bash-tool fail on linux with
+  # Error [ERR_DLOPEN_FAILED]: libstdc++.so.6: cannot open shared object file: No such
+  # file or directory
+  # Thus, we add libstdc++.so.6 manually to LD_LIBRARY_PATH
+  postFixup = ''
+    wrapProgram $out/bin/opencode \
+      --set LD_LIBRARY_PATH "${lib.makeLibraryPath [ stdenv.cc.cc.lib ]}"
   '';
 
   passthru = {

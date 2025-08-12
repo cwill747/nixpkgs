@@ -1103,12 +1103,12 @@ final: prev: {
 
   augment-vim = buildVimPlugin {
     pname = "augment.vim";
-    version = "2025-03-18";
+    version = "2025-07-30";
     src = fetchFromGitHub {
       owner = "augmentcode";
       repo = "augment.vim";
-      rev = "97418c9dfc1918fa9bdd23863ea3d2e49130727f";
-      sha256 = "1sq4lpwzd2xc97l4h7zyglhg0jwg3xfw9qfidi26rz28dd1v2ivs";
+      rev = "b35cda0dab3b729e2eee3d792dcdb0ca7bb2482e";
+      sha256 = "05lwi6wp77dgaa9fn719piab3k8s5x7djfbzmbvmypp8zk8az6wx";
     };
     meta.homepage = "https://github.com/augmentcode/augment.vim/";
     meta.hydraPlatforms = [ ];
@@ -21971,6 +21971,19 @@ final: prev: {
       sha256 = "044jxkcbycmmahi98qd0ynpc8baay72i45qymv4mxvl1d96fjbmd";
     };
     meta.homepage = "https://github.com/lukaszkorecki/workflowish/";
+    meta.hydraPlatforms = [ ];
+  };
+
+  workspaces-nvim = buildVimPlugin {
+    pname = "workspaces.nvim";
+    version = "2024-10-08";
+    src = fetchFromGitHub {
+      owner = "natecraddock";
+      repo = "workspaces.nvim";
+      rev = "55a1eb6f5b72e07ee8333898254e113e927180ca";
+      sha256 = "143xzg60yiw1aam7sc5rva9bzzmshfzpm2sacimwr8188qsz8xvb";
+    };
+    meta.homepage = "https://github.com/natecraddock/workspaces.nvim/";
     meta.hydraPlatforms = [ ];
   };
 
