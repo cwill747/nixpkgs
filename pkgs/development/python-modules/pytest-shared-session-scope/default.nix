@@ -13,15 +13,21 @@
 
 buildPythonPackage rec {
   pname = "pytest-shared-session-scope";
-  version = "0.4.0";
+  version = "0.5.0";
   pyproject = true;
 
   src = fetchFromGitHub {
     owner = "StefanBRas";
     repo = "pytest-shared-session-scope";
     tag = "v${version}";
-    hash = "sha256-cG4RUwQwo7RyOQDCP54gGTLhnJtHTo5iQh8MjNRZ4HI=";
+    hash = "sha256-/26iwaV6E15TWrObIvXE4AipEboe1gv6WYu4BndPtUs=";
   };
+
+  postPatch = ''
+    # https://github.com/StefanBRas/pytest-shared-session-scope/issues/39
+    substituteInPlace src/pytest_shared_session_scope/_scheduler.py \
+      --replace-fail parse_spec_config parse_tx_spec_config
+  '';
 
   build-system = [ hatchling ];
 
@@ -40,10 +46,10 @@ buildPythonPackage rec {
   pythonImportsCheck = [ "pytest_shared_session_scope" ];
 
   meta = {
-    changelog = "https://github.com/StefanBRas/pytest-shared-session-scope/blob/v${version}/CHANGELOG.md";
+    changelog = "https://github.com/StefanBRas/pytest-shared-session-scope/blob/${src.tag}/CHANGELOG.md";
     description = "Pytest session-scoped fixture that works with xdist";
     homepage = "https://pypi.org/project/pytest-shared-session-scope/";
     license = lib.licenses.mit;
-    maintainers = with lib.maintainers; [ drupol ];
+    maintainers = with lib.maintainers; [ ];
   };
 }
