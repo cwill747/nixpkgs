@@ -848,6 +848,7 @@ in
   litellm = runTest ./litellm.nix;
   litestream = runTest ./litestream.nix;
   lk-jwt-service = runTest ./matrix/lk-jwt-service.nix;
+  llama-swap = runTest ./web-servers/llama-swap.nix;
   lldap = runTest ./lldap.nix;
   localsend = runTest ./localsend.nix;
   locate = runTest ./locate.nix;
@@ -912,7 +913,6 @@ in
   metabase = runTest ./metabase.nix;
   mihomo = runTest ./mihomo.nix;
   mindustry = runTest ./mindustry.nix;
-  minecraft = runTest ./minecraft.nix;
   minecraft-server = runTest ./minecraft-server.nix;
   minidlna = runTest ./minidlna.nix;
   miniflux = runTest ./miniflux.nix;
@@ -1290,6 +1290,7 @@ in
   redis = handleTest ./redis.nix { };
   redlib = runTest ./redlib.nix;
   redmine = handleTestOn [ "x86_64-linux" "aarch64-linux" ] ./redmine.nix { };
+  refind = runTest ./refind.nix;
   renovate = runTest ./renovate.nix;
   replace-dependencies = handleTest ./replace-dependencies { };
   reposilite = runTest ./reposilite.nix;
@@ -1330,7 +1331,6 @@ in
   scx = runTest ./scx/default.nix;
   sddm = import ./sddm.nix { inherit runTest; };
   sdl3 = runTest ./sdl3.nix;
-  seafile = runTest ./seafile.nix;
   searx = runTest ./searx.nix;
   seatd = runTest ./seatd.nix;
   send = runTest ./send.nix;
