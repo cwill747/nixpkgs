@@ -283,7 +283,7 @@ with pkgs;
   cve = with python3Packages; toPythonApplication cvelib;
 
   basalt-monado = callPackage ../by-name/ba/basalt-monado/package.nix {
-    tbb = tbb_2021;
+    tbb = tbb_2022;
     cereal = cereal_1_3_2;
     opencv = opencv.override { enableGtk3 = true; };
   };
@@ -1612,10 +1612,6 @@ with pkgs;
     httpServer = true;
   };
 
-  bashate = python3Packages.callPackage ../development/tools/bashate {
-    python3Packages = python311Packages;
-  };
-
   inherit (callPackages ../tools/security/bitwarden-directory-connector { })
     bitwarden-directory-connector-cli
     bitwarden-directory-connector
@@ -2617,10 +2613,6 @@ with pkgs;
 
   compass = callPackage ../development/tools/compass { };
 
-  cone = callPackage ../development/compilers/cone {
-    llvmPackages = llvmPackages_13;
-  };
-
   coreutils = callPackage ../tools/misc/coreutils { };
 
   # The coreutils above are built with dependencies from
@@ -3314,9 +3306,7 @@ with pkgs;
 
   ksmoothdock = libsForQt5.callPackage ../applications/misc/ksmoothdock { };
 
-  libcoap = callPackage ../applications/networking/libcoap {
-    autoconf = buildPackages.autoconf269;
-  };
+  libcoap = callPackage ../applications/networking/libcoap { };
 
   libcryptui = callPackage ../development/libraries/libcryptui {
     gtk3 = if stdenv.hostPlatform.isDarwin then gtk3-x11 else gtk3;
@@ -4279,6 +4269,10 @@ with pkgs;
     }
   );
 
+  tpm2-totp-with-plymouth = tpm2-totp.override {
+    withPlymouth = true;
+  };
+
   trackma-curses = trackma.override { withCurses = true; };
 
   trackma-gtk = trackma.override { withGTK = true; };
@@ -4406,9 +4400,7 @@ with pkgs;
 
   ufmt = with python3Packages; toPythonApplication ufmt;
 
-  uim = callPackage ../tools/inputmethods/uim {
-    autoconf = buildPackages.autoconf269;
-  };
+  uim = callPackage ../tools/inputmethods/uim { };
 
   unbound-with-systemd = unbound.override {
     withSystemd = true;
@@ -4645,12 +4637,6 @@ with pkgs;
   clang-manpages = llvmPackages.clang-manpages;
 
   clang = llvmPackages.clang;
-  clang_12 = llvmPackages_12.clang;
-  clang_13 = llvmPackages_13.clang;
-  clang_14 = llvmPackages_14.clang;
-  clang_15 = llvmPackages_15.clang;
-  clang_16 = llvmPackages_16.clang;
-  clang_17 = llvmPackages_17.clang;
 
   clang-tools = llvmPackages.clang-tools;
 
@@ -4740,13 +4726,7 @@ with pkgs;
   flutter327 = flutterPackages.v3_27;
   flutter324 = flutterPackages.v3_24;
 
-  fpc = callPackage ../development/compilers/fpc {
-    # https://github.com/NixOS/nixpkgs/issues/416485
-    # TODO: remove when upstream issue is fixed:
-    # https://gitlab.com/freepascal.org/fpc/source/-/issues/41045
-    stdenv =
-      if stdenv.cc.isClang && stdenv.hostPlatform.isx86_64 then llvmPackages_17.stdenv else stdenv;
-  };
+  fpc = callPackage ../development/compilers/fpc { };
 
   gambit = callPackage ../development/compilers/gambit { };
   gambit-unstable = callPackage ../development/compilers/gambit/unstable.nix { };
@@ -5383,31 +5363,10 @@ with pkgs;
   };
 
   lld = llvmPackages.lld;
-  lld_12 = llvmPackages_12.lld;
-  lld_13 = llvmPackages_13.lld;
-  lld_14 = llvmPackages_14.lld;
-  lld_15 = llvmPackages_15.lld;
-  lld_16 = llvmPackages_16.lld;
-  lld_17 = llvmPackages_17.lld;
 
   lldb = llvmPackages.lldb;
-  lldb_12 = llvmPackages_12.lldb;
-  lldb_13 = llvmPackages_13.lldb;
-  lldb_14 = llvmPackages_14.lldb;
-  lldb_15 = llvmPackages_15.lldb;
-  lldb_16 = llvmPackages_16.lldb;
-  lldb_17 = llvmPackages_17.lldb;
 
   llvm = llvmPackages.llvm;
-  llvm_12 = llvmPackages_12.llvm;
-  llvm_13 = llvmPackages_13.llvm;
-  llvm_14 = llvmPackages_14.llvm;
-  llvm_15 = llvmPackages_15.llvm;
-  llvm_16 = llvmPackages_16.llvm;
-  llvm_17 = llvmPackages_17.llvm;
-
-  mlir_16 = llvmPackages_16.mlir;
-  mlir_17 = llvmPackages_17.mlir;
   flang = llvmPackages_20.flang;
 
   libclc = llvmPackages.libclc;
@@ -5419,13 +5378,6 @@ with pkgs;
   inherit
     (rec {
       llvmPackagesSet = recurseIntoAttrs (callPackages ../development/compilers/llvm { });
-
-      llvmPackages_12 = llvmPackagesSet."12";
-      llvmPackages_13 = llvmPackagesSet."13";
-      llvmPackages_14 = llvmPackagesSet."14";
-      llvmPackages_15 = llvmPackagesSet."15";
-      llvmPackages_16 = llvmPackagesSet."16";
-      llvmPackages_17 = llvmPackagesSet."17";
 
       llvmPackages_18 = llvmPackagesSet."18";
       clang_18 = llvmPackages_18.clang;
@@ -5458,12 +5410,6 @@ with pkgs;
 
       mkLLVMPackages = llvmPackagesSet.mkPackage;
     })
-    llvmPackages_12
-    llvmPackages_13
-    llvmPackages_14
-    llvmPackages_15
-    llvmPackages_16
-    llvmPackages_17
     llvmPackages_18
     clang_18
     lld_18
@@ -5996,7 +5942,8 @@ with pkgs;
   jpm = callPackage ../development/interpreters/janet/jpm.nix { };
 
   davmail = callPackage ../applications/networking/davmail {
-    zulu = zulu11;
+    jre = jdk11.override { enableJavaFX = true; };
+    zulu = zulu11.override { enableJavaFX = true; };
   };
 
   lambda-lisp-blc = lambda-lisp;
@@ -6881,11 +6828,6 @@ with pkgs;
   iaca_3_0 = callPackage ../development/tools/iaca/3.0.nix { };
   iaca = iaca_3_0;
 
-  ikos = callPackage ../development/tools/analysis/ikos {
-    inherit (llvmPackages_14) stdenv clang llvm;
-    tbb = tbb_2021;
-  };
-
   include-what-you-use = callPackage ../development/tools/analysis/include-what-you-use {
     llvmPackages = llvmPackages_20;
   };
@@ -7353,7 +7295,7 @@ with pkgs;
 
   cctag = callPackage ../development/libraries/cctag {
     stdenv = clangStdenv;
-    tbb = tbb_2021;
+    tbb = tbb_2022;
   };
 
   ceedling = callPackage ../development/tools/ceedling { };
@@ -9202,7 +9144,8 @@ with pkgs;
     zig_0_15
     ;
 
-  zig = zig_0_14;
+  # If this is updated, the default zls version should also be updated to match the default zig version.
+  zig = zig_0_15;
 
   zigStdenv = if stdenv.cc.isZig then stdenv else lowPrio zig.passthru.stdenv;
 
@@ -9212,7 +9155,7 @@ with pkgs;
     ;
 
   # This should be kept updated to ensure the default zls version matches the default zig version.
-  zls = zls_0_14;
+  zls = zls_0_15;
 
   libzint = zint-qt.override { withGUI = false; };
 
@@ -9887,6 +9830,8 @@ with pkgs;
   libmodsecurity = callPackage ../tools/security/libmodsecurity { };
 
   nsd = callPackage ../servers/dns/nsd (config.nsd or { });
+
+  nsdiff = perlPackages.nsdiff;
 
   outline = callPackage ../servers/web-apps/outline (
     lib.fix (super: {
@@ -11637,6 +11582,10 @@ with pkgs;
     ];
   };
 
+  floorp-bin = wrapFirefox floorp-bin-unwrapped {
+    pname = "floorp-bin";
+  };
+
   formiko =
     with python3Packages;
     callPackage ../applications/editors/formiko {
@@ -11762,12 +11711,6 @@ with pkgs;
     withGUI = true;
     withDoc = true;
   };
-
-  gpxsee-qt5 = libsForQt5.callPackage ../applications/misc/gpxsee { };
-
-  gpxsee-qt6 = qt6Packages.callPackage ../applications/misc/gpxsee { };
-
-  gpxsee = gpxsee-qt5;
 
   guvcview = libsForQt5.callPackage ../os-specific/linux/guvcview { };
 
@@ -12401,9 +12344,7 @@ with pkgs;
 
   mumble_overlay = (callPackages ../applications/networking/mumble { }).overlay;
 
-  mup = callPackage ../applications/audio/mup {
-    autoreconfHook = buildPackages.autoreconfHook269;
-  };
+  mup = callPackage ../applications/audio/mup { };
 
   musescore = qt6.callPackage ../applications/audio/musescore { };
 
@@ -12835,9 +12776,6 @@ with pkgs;
     ;
   rke2 = rke2_stable;
 
-  rofi-unwrapped = callPackage ../applications/misc/rofi { };
-  rofi = callPackage ../applications/misc/rofi/wrapper.nix { };
-
   rofi-pass = callPackage ../tools/security/pass/rofi-pass.nix { };
   rofi-pass-wayland = callPackage ../tools/security/pass/rofi-pass.nix {
     backend = "wayland";
@@ -12863,8 +12801,6 @@ with pkgs;
   scantailor-advanced = callPackage ../applications/graphics/scantailor/advanced.nix { };
 
   scantailor-universal = callPackage ../applications/graphics/scantailor/universal.nix { };
-
-  seafile-client = qt6Packages.callPackage ../applications/networking/seafile-client { };
 
   seq66 = qt5.callPackage ../applications/audio/seq66 { };
 
@@ -13442,10 +13378,6 @@ with pkgs;
   wrapThunderbird = callPackage ../applications/networking/mailreaders/thunderbird/wrapper.nix { };
 
   wsjtx = qt5.callPackage ../applications/radio/wsjtx { };
-
-  x11basic = callPackage ../development/compilers/x11basic {
-    autoconf = buildPackages.autoconf269;
-  };
 
   x2goclient = callPackage ../applications/networking/remote/x2goclient { };
 
@@ -14405,8 +14337,6 @@ with pkgs;
 
   liblapack = lapack-reference;
 
-  nota = haskellPackages.callPackage ../applications/science/math/nota { };
-
   notus-scanner = with python3Packages; toPythonApplication notus-scanner;
 
   openblas = callPackage ../development/libraries/science/math/openblas {
@@ -14886,6 +14816,8 @@ with pkgs;
 
   j2cli = with python311Packages; toPythonApplication j2cli;
 
+  j2lint = with python3Packages; toPythonApplication j2lint;
+
   kmonad = haskellPackages.kmonad.bin;
 
   # In general we only want keep the last three minor versions around that
@@ -15059,7 +14991,7 @@ with pkgs;
     );
 
   nix-eval-jobs = callPackage ../tools/package-management/nix-eval-jobs {
-    nixComponents = nixVersions.nixComponents_2_30;
+    nixComponents = nixVersions.nixComponents_2_31;
   };
 
   nix-delegate = haskell.lib.compose.justStaticExecutables haskellPackages.nix-delegate;
